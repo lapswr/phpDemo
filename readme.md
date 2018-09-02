@@ -1,3 +1,4 @@
+
 # phpDemo
 
 The project was build using [Laravel]  5.6 Framework which is the framework of my choice and using it the past 2 years developing projects for my work. It offers great tools out of the box and also it's offering great extensibility with many libraries making a laravel version.
@@ -20,6 +21,12 @@ Install the dependencies by issuing issuing the Composer command in your termina
 composer install
 ```
 
+Create the sqlite database file to database/database.sqlite, in unix systems can be done by issuing this command in your terminal in the project folder:
+
+```sh
+touch database/database.sqlite
+```
+
 Install the sqlite migrations by issuing this command in your terminal:
 
 ```sh
@@ -37,37 +44,35 @@ And you can also generate more recipes in the database with this command:
 ```sh
 php artisan db:seed --class=RecipesTableSeeder
 ```
-
-
-###Serve
+#### Serve
 Optional if you don't have a local server, this command will start a development server at http://localhost:8000:
 
 ```sh
 php artisan serve
 ```
 
-###Test 
+#### Test 
 All the test related files are in the test folder.
 The tests are auto migrating an SQLite database in memory and seedthe json test data in it (all the migration and feed files can be found in the database folder).
 
 To run the Unit tests issue this command :
 
 ```sh
- ./vendor/bin/phpunit
+ ./vendor/bin/phpunit --testdox
 ```
 
 ### Api Routes
 - Returns a total price for the basket provided in the request data, Also implement the meal deal based on the product categories.
-#####Request Url
+##### Request Url
 ```sh
 POST http://localhost:8000/api/totals
 ```
-#####Request Headers
+##### Request Headers
 ```sh
 Content-Type: application/json
 Accept: application/json
 ```
-#####Request Data
+##### Request Data
 ```sh
 {
   "products": [
@@ -86,7 +91,7 @@ Accept: application/json
   ]
 }
 ```
-#####Response
+##### Response
 ```sh
 {
   "total": 6.5
